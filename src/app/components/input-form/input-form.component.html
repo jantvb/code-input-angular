@@ -1,0 +1,37 @@
+
+    <form [formGroup]="form">
+        <input
+            formControlName="value1"
+            inputmode="numeric"
+            #input1
+            (keypress)="onlyAllowNumbers($event)"
+            (input)="moveFocus(value1?.value, input2)"
+            (keydown)="checkBackspace($event, null)"
+            maxlength="1">
+        <input
+            formControlName="value2"
+            inputmode="numeric"
+            #input2
+            (keypress)="onlyAllowNumbers($event)"
+            (input)="moveFocus(value2?.value, input3)"
+            (keydown)="checkBackspace($event, input1)"
+            maxlength="1">
+        <input
+            formControlName="value3"
+            inputmode="numeric"
+            #input3
+            (keypress)="onlyAllowNumbers($event)"
+            (input)="moveFocus(value3?.value, input4)"
+            (keydown)="checkBackspace($event, input2)"
+            maxlength="1">
+        <input
+            formControlName="value4"
+            inputmode="numeric"
+            #input4
+            (keypress)="onlyAllowNumbers($event)"
+            (keydown)="checkBackspace($event, input3)"
+            maxlength="1">
+        <button (click)="submitForm()">Submit</button>
+    </form>
+
+
